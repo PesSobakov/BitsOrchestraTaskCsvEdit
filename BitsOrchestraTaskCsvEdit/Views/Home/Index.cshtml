@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div class="toast align-items-center bg-danger" role="alert" aria-live="assertive" aria-atomic="true" id="ErrorToast">
+        <div class="d-flex">
+            <div class="toast-body" id="ErrorMessage">
+                Hello, world! This is a toast message.
+            </div>
+            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Upload CSV file</label>
+            <input accept=".csv" class="form-control" type="file" id="formFile">
+        </div>
+    </div>
+    <div>
+        <input class="btn btn-primary" type="submit" value="upload" onclick="SendUploadCsv()" />
+    </div>
+</div>
+
+<table class="table">
+    <thead id="head">
+        <tr>
+            <th colspan="5" style="text-align:center">
+                filter
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <input class="form-control" type="text" id="filter0" oninput="updateTable()" />
+            </th>
+            <th>
+                <input class="form-control" type="text" id="filter1" oninput="updateTable()" />
+            </th>
+            <th>
+                <input class="form-control" type="text" id="filter2" oninput="updateTable()" />
+            </th>
+            <th>
+                <input class="form-control" type="text" id="filter3" oninput="updateTable()" />
+            </th>
+            <th>
+                <input class="form-control" type="text" id="filter4" oninput="updateTable()" />
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <span>sort</span>
+                <button class="btn btn-primary" onclick="changeSort(0,false)">asc</button>
+                <button class="btn btn-primary" onclick="changeSort(0,true)">desc</button>
+            </th>
+            <th>
+                <span>sort</span>
+                <button class="btn btn-primary" onclick="changeSort(1,false)">asc</button>
+                <button class="btn btn-primary" onclick="changeSort(1,true)">desc</button>
+            </th>
+            <th>
+                <span>sort</span>
+                <button class="btn btn-primary" onclick="changeSort(2,false)">asc</button>
+                <button class="btn btn-primary" onclick="changeSort(2,true)">desc</button>
+            </th>
+            <th>
+                <span>sort</span>
+                <button class="btn btn-primary" onclick="changeSort(3,false)">asc</button>
+                <button class="btn btn-primary" onclick="changeSort(3,true)">desc</button>
+            </th>
+            <th>
+                <span>sort</span>
+                <button class="btn btn-primary" onclick="changeSort(4,false)">asc</button>
+                <button class="btn btn-primary" onclick="changeSort(4,true)">desc</button>
+            </th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <th>Date of birth</th>
+            <th>Married</th>
+            <th>Phone</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody id="data">
+    </tbody>
+</table>
+
+
+@section Scripts {
+    <script src="~/js/api.js"></script>
+    <script src="~/js/views/home/index.js"></script>
+}
